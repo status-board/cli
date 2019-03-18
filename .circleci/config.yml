@@ -104,18 +104,9 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-      - run:
           name: Coverage
-          environment:
-            JEST_JUNIT_OUTPUT: reports/jest/jest-test-results.xml
           command: |
-            ./cc-test-reporter before-build
             npm run test:coverage:ci
-            ./cc-test-reporter after-build --exit-code $?
             npm run test:coverage:codecov
       - store_artifacts:
           path: coverage
