@@ -3,5 +3,7 @@ export default class C {
 
     public getX = () => this.x;
 
-    public setX = (newVal: number) => { this.x = newVal; }
+    public setX = (newVal: number) => {
+        this.x = newVal;
+    }
 }
