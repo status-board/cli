@@ -5,6 +5,3 @@ export class C {
 
     public setX = (newVal: number) => { this.x = newVal; }
 }
-
-export const x = new C();
-export const y = { ...{ some: 'value' } };
