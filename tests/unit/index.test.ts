@@ -1,4 +1,4 @@
-import { C } from '../../src/index';
+import C from '../../src/index';
 
 describe('Testing C class', () => {
   test('that getX returns 10', () => {

@@ -1,4 +1,4 @@
-export class C {
+export default class C {
     private x = 10;
 
     public getX = () => this.x;
