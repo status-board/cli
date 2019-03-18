@@ -21,6 +21,8 @@
     "test:coverage:codecov": "codecov",
     "test:watch": "jest --watch",
     "ts:build": "tsc",
+    "eslint": "eslint src/**/*",
+    "eslint:fix": "eslint --fix src/**/*",
     "ts:watch": "tsc -w",
     "verify": "npm run verify:npmvet && npm run verify:david && npm run verify:audit && npm run verify:tscheck && npm run tslint && npm run test",
     "verify:circleci": "circleci config validate",

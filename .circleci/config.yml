@@ -80,7 +80,7 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          name: TSLint
+          name: ESLint
           command: npm run eslint
 
   test-node-6:
