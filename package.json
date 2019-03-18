@@ -2,6 +2,9 @@
   "name": "@status-board/cli",
   "version": "0.0.0-development",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
