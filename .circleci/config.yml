@@ -83,12 +83,6 @@ jobs:
           name: ESLint
           command: npm run eslint
 
-  test-node-6:
-    working_directory: ~/cli
-    docker:
-      - image: circleci/node:6
-    <<: *test_steps
-
   test-node-8:
     <<: *docker_defaults
     <<: *test_steps
@@ -103,6 +97,12 @@ jobs:
     working_directory: ~/cli
     docker:
       - image: circleci/node:11
+    <<: *test_steps
+
+  test-node-12:
+    working_directory: ~/cli
+    docker:
+      - image: circleci/node:12
     <<: *test_steps
 
   coverage:
@@ -166,9 +166,6 @@ workflows:
       - eslint:
           requires:
             - audit
-      - test-node-6:
-          requires:
-            - eslint
       - test-node-8:
           requires:
             - eslint
@@ -178,12 +175,15 @@ workflows:
       - test-node-11:
           requires:
             - eslint
+      - test-node-12:
+          requires:
+            - eslint
       - coverage:
           requires:
-            - test-node-6
             - test-node-8
             - test-node-10
             - test-node-11
+            - test-node-12
       - build-typescript:
           requires:
             - coverage
