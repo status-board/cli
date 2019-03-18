@@ -17,7 +17,7 @@
     "semantic-release": "semantic-release",
     "test": "jest --coverage",
     "test:ci": "jest --ci",
-    "test:coverage:ci": "jest --ci --coverage --testResultsProcessor=\"jest-junit\"",
+    "test:coverage:ci": "jest --ci --coverage",
     "test:coverage:codecov": "codecov",
     "test:watch": "jest --watch",
     "ts:build": "tsc",
