@@ -75,18 +75,13 @@ jobs:
           name: NPM Audit Fix
           command: npm audit fix
 
-  tslint:
+  eslint:
     <<: *docker_defaults
     steps:
       - *attach_workspace
       - run:
-          name: Create TSLint report directory
-          command: mkdir reports &&  mkdir reports/tslint
-      - run:
           name: TSLint
-          command: npm run tslint
-      - store_artifacts:
-          path: reports/tslint
+          command: npm run eslint
 
   test-node-6:
     working_directory: ~/cli
@@ -168,21 +163,21 @@ workflows:
       - audit:
           requires:
             - npmvet
-      - tslint:
+      - eslint:
           requires:
             - audit
       - test-node-6:
           requires:
-            - tslint
+            - eslint
       - test-node-8:
           requires:
-            - tslint
+            - eslint
       - test-node-10:
           requires:
-            - tslint
+            - eslint
       - test-node-11:
           requires:
-            - tslint
+            - eslint
       - coverage:
           requires:
             - test-node-6
